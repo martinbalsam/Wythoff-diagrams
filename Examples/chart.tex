@@ -1,0 +1,142 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[italian]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{hyperref}
+\usepackage{amssymb}
+\usepackage{makeidx}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage[nomessages]{fp}
+\usetikzlibrary{arrows,decorations.pathmorphing,decorations.markings,backgrounds,positioning,fit,petri}
+
+
+%%Wythoff diagrams
+\newcommand{\wyradius}{.08cm}
+\newcommand{\wystep}{1 cm}
+\newcommand{\wydot}[2]{\fill (#1,#2) circle (\wyradius);}
+\newcommand{\wycircle}[2]{
+											\fill (#1,#2) circle (0.14);
+											\fill[white] (#1,#2) circle (0.11);
+											\fill (#1,#2) circle (0.075);
+											}
+
+%%%% An %%%%%
+\newcommand{\wyAn}[1]{
+											\foreach \x in {1,2,...,#1}
+											{
+											\wydot{\x}{0}
+											
+											}
+											\draw (1,0) -- (#1, 0);
+										}
+										
+%%%% Bn %%%%%										
+\newcommand{\wyBn}[1]{\foreach \x in {1,2,...,#1}
+											{
+											\wydot{\x}{0}
+											}
+										\draw (1,0) -- (#1, 0);
+										\draw (1.5,0) node[anchor=south] {$4$};
+										}
+
+
+%%%% En %%%%%
+\newcommand{\wyEn}[1]{
+										\pgfmathsetmacro{\count}{#1 - 1}		
+										\wyAn{\count}
+										\wydot{3}{1}
+										\draw (3,0) -- (3,1);
+										}
+
+
+%%%% Dn %%%%%
+\newcommand{\wyDn}[1]{
+										\pgfmathsetmacro{\count}{#1 - 2}									
+										\wydot{0}{.5}
+										\wydot{0}{-0.5}
+										\wyAn{\count}
+										\draw (0,0.5) -- (1,0) -- (0,-0.5);
+										}
+										
+%%%% Im %%%%%
+\newcommand{\wyIm}[1]{
+										\wyAn{2}
+										\draw (1.5,0) node[anchor=south] {$#1$};
+										}
+%%%% F4 %%%%%%
+\newcommand{\wyF}{\wyAn{4}
+								\draw (2.5,0) node[anchor=south] {$4$};	}
+
+%%%% Hn %%%%%%
+\newcommand{\wyHn}[1]{\wyAn{#1}
+								\draw (1.5,0) node[anchor=south] {$5$};	}
+								
+
+\newenvironment{wythoff}{\begin{tikzpicture}[decoration={markings,mark=at position 0.7 with {\arrow{>}}}]}
+{\end{tikzpicture}}
+
+
+\usepackage{xcolor}
+\usepackage{listings}
+\lstset
+{
+    language=[LaTeX]TeX,
+    breaklines=true,
+    basicstyle=\tt\scriptsize,
+    keywordstyle=\color{blue},
+    identifierstyle=\color{magenta},
+}
+
+
+
+
+
+\author{Giulio Rasi}
+\begin{document}
+
+\section{Examples chart}
+
+\begin{tabular}{|c|c|}
+\hline 
+\begin{wythoff}
+	\wyDn{5}
+	\wycircle{1}{0}
+	\wycircle{2}{0}
+\end{wythoff} & \begin{lstlisting}
+\wyDn{5}
+\wycircle{1}{0}
+\wycircle{2}{0}
+\end{lstlisting}
+\\ 
+\hline 
+\begin{wythoff}
+	\wyIm{m}
+\end{wythoff} & • \\ 
+\hline 
+\begin{wythoff}
+	\wyAn{3}
+\end{wythoff} & • \\ 
+\hline 
+• & • \\ 
+\hline 
+• & • \\ 
+\hline 
+• & • \\ 
+\hline 
+• & • \\ 
+\hline 
+\end{tabular} 
+\begin{center}
+	\begin{wythoff}
+	\wyDn{5}
+	\wycircle{1}{0}
+	\wycircle{2}{0}
+\end{wythoff}
+\end{center}
+
+
+
+
+\end{document}
