@@ -1,0 +1,354 @@
+\ProvidesPackage{wythoff_package}
+
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{tikz}
+\usepackage[nomessages]{fp}
+\usetikzlibrary{arrows,decorations.pathmorphing,decorations.markings,backgrounds,positioning,fit,petri}
+\tikzset{fontscale/.style = {font=0.01}
+    }
+
+%%Wythoff diagrams
+\newcommand{\wyradius}{.08cm}
+\newcommand{\wystep}{1 cm}
+\newcommand{\wydot}[2]{\fill (#1,#2) circle (\wyradius);}
+\newcommand{\wycircle}[2]{
+											\fill (#1,#2) circle (0.14);
+											\fill[white] (#1,#2) circle (0.11);
+											\fill (#1,#2) circle (0.075);
+											}
+\newcommand{\segments}[1]{
+												\pgfmathsetmacro{\start}{#1 -0.25}	
+												\pgfmathsetmacro{\fine}{#1 +0.25}	
+												\draw[dashed] (\start , 0) -- (\fine,0);
+
+}
+%%%% An %%%%%
+\newcommand{\wyAn}[1]{
+											\foreach \x in {1,2,...,#1}
+											{
+											\wydot{\x}{0}
+											
+											}
+											\draw (1,0) -- (#1, 0);
+										}
+										
+										
+%%%% An with dots %%%%%
+\newcommand{\wyAndots}{
+											\foreach \x in {1,2,3}
+											{
+											\wydot{\x}{0}
+											}
+											\draw (1,0) -- (3.35, 0);
+											\segments{4}
+											\draw (4.65,0) -- (5,0);
+											\wydot{5}{0}
+											
+										}										
+										
+%%%% An with dots  WITH LABELES%%%%%
+\newcommand{\wyAndotslabs}{
+											\foreach \x in {1,2,3}
+											{
+											\wydot{\x}{0}
+											\draw (\x , 0) node[anchor=north] {\tiny{$\x$}};
+											}
+											\draw (1,0) -- (3.35, 0);
+											\segments{4}
+											\draw (4.65,0) -- (5,0);
+											\wydot{5}{0}
+											\draw (5 , 0) node[anchor=north] {\tiny{$n$}};
+										}										
+																				
+										
+%%%% Bn with dots %%%%%
+\newcommand{\wyBndots}{
+											\foreach \x in {1,2,3}
+											{
+											\wydot{\x}{0}
+											}
+											\draw (1,0) -- (3.35, 0);
+											\segments{4}
+											\draw (4.65,0) -- (5,0);
+											\wydot{5}{0}
+											\draw (1.5,0) node[anchor=south] {$4$};
+										}												
+										
+										
+%%%% Bn with dots WITH LABELS%%%%%
+\newcommand{\wyBndotslabs}{
+											\foreach \x in {1,2,3}
+											{
+											\wydot{\x}{0}
+											\draw (\x , 0) node[anchor=north] {\tiny{$\x$}};
+											}
+											\draw (1,0) -- (3.35, 0);
+											\segments{4}
+											\draw (4.65,0) -- (5,0);
+											\wydot{5}{0}
+											\draw (1.5,0) node[anchor=south] {$4$};
+											\draw (5 , 0) node[anchor=north] {\tiny{$n$}};
+										}												
+										
+%%%% Bn %%%%%										
+\newcommand{\wyBn}[1]{\foreach \x in {1,2,...,#1}
+											{
+											\wydot{\x}{0}
+											}
+										\draw (1,0) -- (#1, 0);
+										\draw (1.5,0) node[anchor=south] {$4$};
+										}
+
+
+
+%%%% Dn %%%%%
+\newcommand{\wyDn}[1]{
+										\pgfmathsetmacro{\count}{#1 - 2}									
+										\wydot{0}{.5}
+										\wydot{0}{-0.5}
+										\wyAn{\count}
+										\draw (0,0.5) -- (1,0) -- (0,-0.5);
+										}
+										
+%%%% Dn with dots %%%%%
+\newcommand{\wyDndots}{
+										\wydot{0}{.5}
+										\wydot{0}{-0.5}
+																					\foreach \x in {1,2}
+											{
+											\wydot{\x}{0}
+											}
+											\draw (1,0) -- (2.35, 0);
+											\segments{3}
+											\draw (3.65,0) -- (4,0);
+											\wydot{4}{0}
+
+										\draw (0,0.5) -- (1,0) -- (0,-0.5);
+										}											
+							
+							
+%%%% Dn with dots WITH LABELES %%%%%
+\newcommand{\wyDndotslabs}{
+										\wydot{0}{.5}
+										\wydot{0}{-0.5}
+																					\foreach \x in {1,2}
+											{
+											\wydot{\x}{0}
+											}
+											\draw (1,0) -- (2.35, 0);
+											
+											\segments{3}
+											\draw (3.65,0) -- (4,0);
+											\wydot{4}{0}
+
+										\draw (0,0.5) -- (1,0) -- (0,-0.5);
+										
+%%%labels
+										\draw (1,0) node[anchor=north] {\tiny{$3$}};
+										\draw (2,0) node[anchor=north] {\tiny{$4$}};		
+										\draw (4,0) node[anchor=north] {\tiny{$n$}};		
+										\draw (0,0.5) node[anchor=north] {\tiny{$1$}};		
+										\draw (0,-0.5) node[anchor=north] {\tiny{$2$}};												
+										
+										}											
+													
+						
+
+%%%% En %%%%%
+\newcommand{\wyEn}[1]{
+										\pgfmathsetmacro{\count}{#1 - 1}		
+										\wyAn{\count}
+										\wydot{3}{1}
+										\draw (3,0) -- (3,1);
+										}
+
+%%%% En WITH LABESs%%%%%
+\newcommand{\wyEnlabs}[1]{
+										\pgfmathsetmacro{\count}{#1 - 1}		
+										\wyAn{\count}
+										\wydot{3}{1}
+										\draw (3,0) -- (3,1);
+										\foreach \x in {2,3,...,#1}
+											 {
+												\pgfmathsetmacro{\xco}{\x -1}
+												\draw (\xco,0) node[anchor=north]{\tiny{$\x$}};
+											}
+										\draw (3,1) node[anchor=east]{\tiny{$1$}};
+										}
+						
+
+									
+%%%% F4 %%%%%%
+\newcommand{\wyF}{\wyAn{4}
+								\draw (2.5,0) node[anchor=south] {$4$};	
+								}
+%%%% F4 WITH LABELS%%%%%%
+\newcommand{\wyFlabs}{\wyAn{4}
+								\draw (2.5,0) node[anchor=south] {$4$};	
+								\foreach \x in {1,2,3,4}
+									{
+										\draw (\x,0) node[anchor=north]{\tiny{$\x$}};
+									}
+								}								
+							
+
+%%%% Hn %%%%%%
+\newcommand{\wyHn}[1]{\wyAn{#1}
+								\draw (1.5,0) node[anchor=south] {$5$};	
+								}
+								
+	
+%%%% Hn WITH LABELS%%%%%%
+\newcommand{\wyHnlabs}[1]{\wyAn{#1}
+								\draw (1.5,0) node[anchor=south] {$5$};	
+								\foreach \x in {1,2,...,#1}
+									{
+										\draw (\x,0) node[anchor=north]{\tiny{$\x$}};
+									}								
+								
+								}							
+								
+
+										
+%%%% Im %%%%%
+\newcommand{\wyIm}[1]{
+										\wyAn{2}
+										\draw (1.5,0) node[anchor=south] {$#1$};
+										}
+%%%% Im with labels%%%%%
+\newcommand{\wyImlabs}[1]{
+										\wyAn{2}
+										\draw (1.5,0) node[anchor=south] {$#1$};
+										\draw(1,0) node[anchor=north]{\tiny{$1$}};
+										\draw(2,0) node[anchor=north]{\tiny{$2$}};
+
+										}
+
+%%%% d- Cube %%%%
+\newcommand{\wyCube}[1]{\foreach \x in {1,2,...,#1}
+												{
+												\wycircle{\x}{0}
+												}
+											}
+											
+%%% d-cube from B4 with dots%%%
+	\newcommand{\wynCubedots}{
+										\wyBndots
+										\wycircle{1}{0}
+											
+										}											
+				
+%%% d-cube free product dots %%%				
+\newcommand{\wynCubedotsfree}{
+											\foreach \x in {1,2,3}
+											{
+											\wycircle{\x}{0}
+											}
+											\segments{4}
+											\wycircle{5}{0}	
+										}	
+%%% d-cube free product dots %%%				
+\newcommand{\wynCubedotsfreek}{
+											\foreach \x in {1}
+											{
+											\wycircle{\x}{0}
+											}
+											\draw(1.75,0) \node[anchor=north]{$k$ dots}
+											\segments{1.75}
+											\wycircle{2.5}{0}	
+										}											
+										
+										
+												
+%%%% d-simplex %%%
+\newcommand{\wySimpl}[1]{
+											\wyAn{#1}
+											\wycircle{1}{0}
+											}
+
+%%%% n simplex with dots %%%%%
+\newcommand{\wynSimpldots}{
+										\wyAndots
+										\wycircle{1}{0}
+											
+										}	
+
+
+
+
+
+\newenvironment{wythoff}{\begin{tikzpicture}[decoration={markings,mark=at position 0.7 with {\arrow{>}}}]}
+{\end{tikzpicture}}
+
+
+\usepackage{xcolor}
+\usepackage{listings}
+\lstset
+{
+    language=[LaTeX]TeX,
+    breaklines=true,
+    basicstyle=\tt\scriptsize,
+    keywordstyle=\color{blue},
+    identifierstyle=\color{magenta},
+}
+
+
+%%%%% CUSTOM SCRIPTS %%%%
+
+\newcommand{\kcube}{\begin{wythoff}
+\wycircle{1}{0}
+\segments{1.75}
+\draw (1.75,0) node[anchor=north]{$k$};
+\wycircle{2.5}{0}
+\end{wythoff}}
+\newcommand{\ksimpl}{\textbf{INSERT CODE FOR THE k-simplex }}
+\newcommand{\kfourcube}{\textbf{INSERT CODE FOR THE 4 k-cube }}
+
+\newcommand{\highAFamily}{INSERT DRAWING OF THE HIGHEST RANKING A-DIAGRAM WITH $P_k$.}
+\newcommand{\highBFamily}{INSERT DRAWING OF THE HIGHEST RANKING B-DIAGRAM WITH $P_k$.}
+\newcommand{\highDFamily}{INSERT DRAWING OF THE HIGHEST RANKING D-DIAGRAM WITH $P_k$.}
+\newcommand{\highEseven}{INSERT DRAWING OF THE HIGHEST RANKING DIAGRAM ON $E_7$ WITH $P_4$.}
+\newcommand{\highEnine}{INSERT DRAWING OF THE HIGHEST RANKING DIAGRAM ON $E_9$ WITH $P_k$.}
+
+
+
+%%%% DRAW COMPLETE TABLE %%%%
+
+
+\newcommand{\wycompletetable}{\begin{tabular}{|c|c|}
+\hline 
+$A_n$ & 
+
+ \begin{wythoff}
+\wyAndotslabs draw (1,0) node[anchor=south] {\phantom{$1$}}; 
+\end{wythoff}
+\\ 
+\hline 
+$B_n$ & \begin{wythoff} \wyBndotslabs \  \end{wythoff} \\ 
+\hline 
+
+$D_n$ & \begin{wythoff} \wyDndotslabs \end{wythoff} \\ 
+\hline 
+$E_6$ & \begin{wythoff} \wyEnlabs{6} \end{wythoff} \\ 
+\hline 
+$E_7$ & \begin{wythoff} \wyEnlabs{7}  \end{wythoff} \\ 
+\hline 
+$E_8$ & \begin{wythoff} \wyEnlabs{8} \end{wythoff} \\ 
+\hline 
+$F_4$ & \begin{wythoff} \wyFlabs \end{wythoff} \\
+ \hline
+$H_3$ & \begin{wythoff} \wyHnlabs{3} \end{wythoff}\\
+ \hline
+$H_4$ &\begin{wythoff} \wyHnlabs{4} \end{wythoff} \\
+ \hline
+ 
+$I_2(m)$ &\begin{wythoff} \wyImlabs{m} \end{wythoff} \\
+\hline
+\end{tabular} }
+
