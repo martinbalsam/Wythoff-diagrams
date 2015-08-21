@@ -254,11 +254,9 @@
 											\wycircle{5}{0}	
 										}	
 %%% d-cube free product dots %%%				
-\newcommand{\wynCubedotsfreek}{
-											\foreach \x in {1}
-											{
-											\wycircle{\x}{0}
-											}
+\newcommand{\wynCubedotsfreek}{											
+											\wycircle{0}{0}
+											\wycircle{1}{0}
 											\draw(1.75,0) \node[anchor=north]{$k$ dots}
 											\segments{1.75}
 											\wycircle{2.5}{0}	
@@ -307,15 +305,291 @@
 \draw (1.75,0) node[anchor=north]{$k$};
 \wycircle{2.5}{0}
 \end{wythoff}}
-\newcommand{\ksimpl}{\textbf{INSERT CODE FOR THE k-simplex }}
-\newcommand{\kfourcube}{\textbf{INSERT CODE FOR THE 4 k-cube }}
 
-\newcommand{\highAFamily}{INSERT DRAWING OF THE HIGHEST RANKING A-DIAGRAM WITH $P_k$.}
+\newcommand{\kcubebis}{\begin{wythoff}
+\wycircle{0}{0}
+\wycircle{1}{0}
+\segments{1.75}
+\wycircle{2.5}{0}
+\end{wythoff}}
+
+\newcommand{\ksimpl}{\begin{wythoff}
+\wyAn{2}
+\wycircle{1}{0}
+\draw (2,0) -- (2.30,0);
+\segments{2.75}
+\draw (3.20,0) -- (3.5,0);
+\wydot{3.5}{0}
+\end{wythoff}}
+
+\newcommand{\kfourcube}{\begin{wythoff}
+\wyAn{2}
+\wycircle{1}{0}
+\draw (2,0) -- (2.30,0);
+\segments{2.75}
+\draw (3.20,0) -- (3.5,0);
+\wydot{3.5}{0}
+\draw (1.5,0) node[anchor=south] {$4$};
+\end{wythoff}}
+
+\newcommand{\highAFamilylk}{\begin{wythoff}
+
+
+										\wydot{0}{0}
+										\draw (0,0) node[anchor=north] {\tiny{$1$}};
+										\wydot{1}{0}
+
+
+										\draw (0,0) -- (1.25,0);
+										\segments{1.70}
+										\draw (2.15,0) -- (5.65,0);
+										\wydot{2.40}{0}
+										\draw (2.40,0) node[anchor=north] {\tiny{$k-2$}};	
+										\wycircle{3.40}{0}
+										\draw (3.40,0) node[anchor=north] {\tiny{$k-1$}};
+										\wycircle{4.40}{0}
+										\draw (4.40,0) node[anchor=north] {\tiny{$k$}};
+										\wydot{5.40}{0}
+										\draw (5.40,0) node[anchor=north] {\tiny{$k-1$}};
+
+										\segments{6.10}
+
+										\wydot{6.80}{0}
+										\draw (6.80,0) node[anchor=north] {\tiny{$l k -2$}};
+										\wycircle{7.80}{0}
+										\draw (7.80,0) node[anchor=north] {\tiny{$l k - 1$}};
+										\wycircle{8.80}{0}
+										\draw (8.80,0) node[anchor=north] {\tiny{$l k $}};
+										\wydot{9.80}{0}
+										\draw (9.80,0) node[anchor=north] {\tiny{$l k + 1$}};
+										\draw (6.55,0) -- (10.05,0);
+
+										\segments{10.50}
+
+										\draw (10.95,0) -- (11.20,0);
+										\wydot{11.20}{0}
+										\draw (11.20,0) node[anchor=north] {\tiny{$l k + k -2 $}};
+
+
+										\draw (1,0) node[anchor=north] {\tiny{$2$}};	
+											
+										\end{wythoff}
+										}	
 \newcommand{\highBFamily}{INSERT DRAWING OF THE HIGHEST RANKING B-DIAGRAM WITH $P_k$.}
+
+\newcommand{\highBFamilylk}{\begin{wythoff}
+
+										\wydot{-1}{0}
+										\draw (-1.0,0) node[anchor=north] {\tiny{$1$}};
+										\wydot{0}{0}
+										\draw (0,0) node[anchor=north] {\tiny{$2$}};
+										\wydot{1}{0}
+										\draw (-.5,0) node[anchor=south] {$4$};
+
+										\draw (-1,0) -- (1.25,0);
+										\segments{1.70}
+										\draw (2.15,0) -- (5.65,0);
+										\wydot{2.40}{0}
+										\draw (2.40,0) node[anchor=north] {\tiny{$k-1$}};	
+										\wycircle{3.40}{0}
+										\draw (3.40,0) node[anchor=north] {\tiny{$k$}};
+										\wycircle{4.40}{0}
+										\draw (4.40,0) node[anchor=north] {\tiny{$k+1$}};
+										\wydot{5.40}{0}
+										\draw (5.40,0) node[anchor=north] {\tiny{$k+2$}};
+
+										\segments{6.10}
+
+										\wydot{6.80}{0}
+										\draw (6.80,0) node[anchor=north] {\tiny{$l k -1$}};
+										\wycircle{7.80}{0}
+										\draw (7.80,0) node[anchor=north] {\tiny{$l k$}};
+										\wycircle{8.80}{0}
+										\draw (8.80,0) node[anchor=north] {\tiny{$l k +1$}};
+										\wydot{9.80}{0}
+										\draw (9.80,0) node[anchor=north] {\tiny{$l k + 2$}};
+										\draw (6.55,0) -- (10.05,0);
+
+										\segments{10.50}
+
+										\draw (10.95,0) -- (11.20,0);
+										\wydot{11.20}{0}
+										\draw (11.20,0) node[anchor=north] {\tiny{$l k + k - 1$}};
+
+
+										\draw (1,0) node[anchor=north] {\tiny{$3$}};	
+											
+										\end{wythoff}
+										}	
+
+\newcommand{\highBFamilyk}{\begin{wythoff}
+
+										\wydot{-1}{0}
+										\draw (-1.0,0) node[anchor=north] {\tiny{$1$}};
+										\wydot{0}{0}
+										\draw (0,0) node[anchor=north] {\tiny{$2$}};
+										\wydot{1}{0}
+										\draw (-.5,0) node[anchor=south] {$4$};
+
+										\draw (-1,0) -- (1.25,0);
+										\segments{1.70}
+										\draw (2.15,0) -- (5.65,0);
+										\wydot{2.40}{0}
+										\draw (2.40,0) node[anchor=north] {\tiny{$k-1$}};	
+										\wycircle{3.40}{0}
+										\draw (3.40,0) node[anchor=north] {\tiny{$k$}};
+										\wycircle{4.40}{0}
+										\draw (4.40,0) node[anchor=north] {\tiny{$k+1$}};
+										\wydot{5.40}{0}
+										\draw (5.40,0) node[anchor=north] {\tiny{$k+2$}};
+
+										\segments{6.10}
+
+										\wydot{6.80}{0}
+										\draw (6.80,0) node[anchor=north] {\tiny{$2 k -1$}};
+										\draw (6.55,0) -- (6.80,0);
+
+
+										\draw (1,0) node[anchor=north] {\tiny{$3$}};	
+											
+										\end{wythoff}
+										}	
+
+
 \newcommand{\highDFamily}{INSERT DRAWING OF THE HIGHEST RANKING D-DIAGRAM WITH $P_k$.}
+
+\newcommand{\highDFamilyk}{\begin{wythoff}
+										\wydot{0}{.5}
+										\wydot{0}{-0.5}
+										\wydot{1}{0}
+										\draw (0,0.5) -- (1,0) -- (0,-0.5);
+
+										\draw (1,0) -- (1.25,0);
+										\segments{1.70}
+										\draw (2.15,0) -- (5.65,0);
+										\wydot{2.40}{0}
+										\draw (2.40,0) node[anchor=north] {\tiny{$k-1$}};	
+										\wycircle{3.40}{0}
+										\draw (3.40,0) node[anchor=north] {\tiny{$k$}};
+										\wycircle{4.40}{0}
+										\draw (4.40,0) node[anchor=north] {\tiny{$k+1$}};
+										\wydot{5.40}{0}
+										\draw (5.40,0) node[anchor=north] {\tiny{$k+2$}};
+
+										\segments{6.10}
+
+										\wydot{6.80}{0}
+										\draw (6.80,0) node[anchor=north] {\tiny{$2 k -1$}};
+										\draw(6.55,0) -- (6.80,0);
+
+
+										\draw (1,0) node[anchor=north] {\tiny{$3$}};	
+										\draw (0,0.5) node[anchor=north] {\tiny{$1$}};		
+										\draw (0,-0.5) node[anchor=north] {\tiny{$2$}};												
+										\end{wythoff}
+										}	
+
+\newcommand{\highDFamilylk}{\begin{wythoff}
+										\wydot{0}{.5}
+										\wydot{0}{-0.5}
+										\wydot{1}{0}
+										\draw (0,0.5) -- (1,0) -- (0,-0.5);
+
+										\draw (1,0) -- (1.25,0);
+										\segments{1.70}
+										\draw (2.15,0) -- (5.65,0);
+										\wydot{2.40}{0}
+										\draw (2.40,0) node[anchor=north] {\tiny{$k-1$}};	
+										\wycircle{3.40}{0}
+										\draw (3.40,0) node[anchor=north] {\tiny{$k$}};
+										\wycircle{4.40}{0}
+										\draw (4.40,0) node[anchor=north] {\tiny{$k+1$}};
+										\wydot{5.40}{0}
+										\draw (5.40,0) node[anchor=north] {\tiny{$k+2$}};
+
+										\segments{6.10}
+
+										\wydot{6.80}{0}
+										\draw (6.80,0) node[anchor=north] {\tiny{$l k -1$}};
+										\wycircle{7.80}{0}
+										\draw (7.80,0) node[anchor=north] {\tiny{$l k$}};
+										\wycircle{8.80}{0}
+										\draw (8.80,0) node[anchor=north] {\tiny{$l k +1$}};
+										\wydot{9.80}{0}
+										\draw (9.80,0) node[anchor=north] {\tiny{$l k + 2$}};
+										\draw (6.55,0) -- (10.05,0);
+
+										\segments{10.50}
+
+										\draw (10.95,0) -- (11.20,0);
+										\wydot{11.20}{0}
+										\draw (11.20,0) node[anchor=north] {\tiny{$l k + k$}};
+
+
+										\draw (1,0) node[anchor=north] {\tiny{$3$}};	
+										\draw (0,0.5) node[anchor=north] {\tiny{$1$}};		
+										\draw (0,-0.5) node[anchor=north] {\tiny{$2$}};												
+										\end{wythoff}
+										}	
 \newcommand{\highEseven}{INSERT DRAWING OF THE HIGHEST RANKING DIAGRAM ON $E_7$ WITH $P_4$.}
 \newcommand{\highEnine}{INSERT DRAWING OF THE HIGHEST RANKING DIAGRAM ON $E_9$ WITH $P_k$.}
 
+\newcommand{\pfeifle}{\begin{wythoff}
+\wyDn{5}
+\wycircle{1}{0}
+\wycircle{2}{0}
+
+\end{wythoff}}
+
+\newcommand{\pfeiflebn}{\begin{wythoff}
+\wyBn{5}
+\wycircle{3}{0}
+\wycircle{4}{0}
+\end{wythoff}}
+
+\newcommand{\threesimpl}{\begin{wythoff}
+
+\wyAn{3}
+\wycircle{1}{0}
+
+\end{wythoff}
+}
+
+
+\newcommand{\threefourcube}{\begin{wythoff}
+
+\wyBn{3}
+\wycircle{1}{0}
+
+\end{wythoff}
+}
+
+\newcommand{\threecube}{\begin{wythoff}
+\foreach \x in {0,1,2} {
+	\wycircle{\x}{0}
+
+}
+
+\end{wythoff}
+}
+
+\newcommand{\wyocta}{\begin{wythoff}
+					
+\wydot{0}{0}
+\wycircle{1}{0}
+\wydot{2}{0}
+\draw (0,0) -- (2,0);
+\end{wythoff}
+}
+
+\newcommand{\wytrunc}{\begin{wythoff}
+					
+\wycircle{0}{0}
+\wycircle{1}{0}
+\wydot{2}{0}
+\draw (0,0) -- (2,0);
+\end{wythoff}
+}
 
 
 %%%% DRAW COMPLETE TABLE %%%%
